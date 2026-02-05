@@ -517,11 +517,191 @@ c = C()
 #             # if value > 0:
 #                 total = total + value
 #         return total
-    
+
 # payments = AmountPaymentList([100, -300, 400])
 # pay1 = AmountPaymentList([100, 200])
 # print(payments.amount_payment())
 # print(pay1.amount_payment())
+
+# from collections import UserString
+
+
+# class NumberString(UserString):
+#     def number_count(self):
+#         count = 0
+#         for ch in self.data:
+#             if ch.isdigit():
+#                 count += 1
+#         return count
+
+# d = NumberString("asdfjk333")
+# print(d.number_count())
+
+# import string
+
+
+# class NameTooShortError(Exception):
+#     pass
+
+
+# class NameStartsFromLowError(Exception):
+#     pass
+
+
+# def enter_name():
+
+#     name = input("Enter name: ")
+#     if len(name) < 3:
+#         raise NameTooShortError
+#     if name[0] not in string.ascii_uppercase:
+#         raise NameStartsFromLowError
+
+
+# while True:
+#     try:
+#         name = enter_name()
+#         break
+#     except NameTooShortError:
+#         print("Name is too short, need more than 3 symbols. Try again.")
+#     except NameStartsFromLowError:
+#         print("Name should start from capital letter. Try again.")
+
+# class IDException(Exception):
+#     pass
+
+# def add_id(id_list, employee_id):
+#     if not employee_id.startswith("01"):
+#         raise IDException("Employee ID must start with '01'")
+#     else:
+#         id_list.append(employee_id)
+#         return id_list
+
+# ids = ["01001", "01002"]
+
+
+# print(add_id(ids, "01222"))
+# print(add_id("01233", "01222"))
+
+
+# class Animal:
+#     def __init__(self, nickname, weight):
+#         self.nickname = nickname
+#         self.weight = weight
+
+#     def say(self):
+#         pass
+
+#     def change_weight(self, weight):
+#         self.weight = weight
+
+
+# class Cat(Animal):
+#     def say(self):
+#         return "Meow"
+
+
+# class CatDog:
+#     def __init__(self, nickname, weight):
+#         self.nickname = nickname
+#         self.weight = weight
+
+#     def say(self):
+#         return "Meow"
+
+#     def change_weight(self, weight):
+#         self.weight = weight
+
+
+# cat = Cat("murka", 3)
+# catdog = CatDog("Chupakabra", 7)
+# catdog.change_weight(33)
+# # print(cat.nickname)
+# print(catdog.weight)
+
+
+class Contacts:
+    current_id = 1
+
+    def __init__(self):
+        self.contacts = []
+
+    def list_contacts(self):
+        return self.contacts
+
+    def add_contacts(self, name, phone, email, favorite):
+        contact = {
+            "id": Contacts.current_id,
+            "name": name,
+            "phone": phone,
+            "email": email,
+            "favorite": favorite,
+        }
+        self.contacts.append(contact)
+        Contacts.current_id += 1
+
+    def get_contact_by_id(self, id):
+        for contact in self.contacts:
+            if contact.get("id") == id:
+                return contact
+        else:
+            return None
+
+    # def remove_contacts(self, id):
+    #     contact = self.get_contact_by_id(id)
+    #     if contact:
+    #         self.contacts.remove(contact)
+
+    def remove_contacts(self, id):
+        for contact in self.contacts:
+            if contact.get("id") == id:
+                self.contacts.remove(contact)
+                break
+
+conts = Contacts()
+conts.add_contacts("sasha", "0991112233", "asfsa@sdf.com", True)
+conts.add_contacts("nika11", "03333112233", "asfsa@sdf.com", True)
+conts.add_contacts("nika22", "03333112233", "asfsa@sdf.com", True)
+conts.add_contacts("nika333", "03333112233", "asfsa@sdf.com", True)
+
+print(conts.list_contacts())   
+print(len(conts.list_contacts()))   
+conts.remove_contacts(1)
+
+print(len(conts.list_contacts()))   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# cont = Contacts()
+# cont.add_contacts("sasha", "0991112233", "asfsa@sdf.com", True)
+# cont.add_contacts("nika", "099111223221233", "asfsa@sdfasdd.com", True)
+# cont.add_contacts("olesya", "234234233", "adfafd@afgafg.com", True)
+
+# print(cont.get_contact_by_id(1))
+# print(cont.list_contacts()[0])
+
+
+
+
 
 
 
