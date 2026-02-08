@@ -42,6 +42,10 @@ print(len(conts.list_contacts()))
 conts.remove_contacts(1)
 
 print(len(conts.list_contacts()))   
+print(len(conts.list_contacts()))   
+print(len(conts.list_contacts()))   
+print(len(conts.list_contacts()))   
+print(len(conts.list_contacts()))   
 
 
 
