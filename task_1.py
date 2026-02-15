@@ -46,7 +46,7 @@ class Record:
         for phone in self.phones:
             if phone.value == phone_number:
                 return phone
-            return None
+        return None
 
     def __str__(self):
         return f"Contact name: {self.name.value}, phones: {'; '.join(p.value for p in self.phones)}"
@@ -63,6 +63,16 @@ class AddressBook(UserDict):
         if name not in self.data:
             raise ValueError("contact not found")
         del self.data[name]
+
+    def __str__(self):
+        lines = []
+
+        for record in self.data.values():
+            lines.append(str(record))
+        return "\n".join(lines)
+
+
+
 
 
 
